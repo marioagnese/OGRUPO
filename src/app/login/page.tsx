@@ -65,7 +65,7 @@ export default function Login(){
   }
 
   return <>
-    <section className="member-hero">
+    <section className="member-hero member-hero-login">
       <div className="wrap">
         <span className="og-kicker">ÁREA EXCLUSIVA · OGRUPO</span>
         <h1>Boas conversas<br/><em>continuam aqui.</em></h1>
