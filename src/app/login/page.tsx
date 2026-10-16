@@ -41,6 +41,10 @@ export default function Login(){
         cache:"no-store"
       });
 
+      if(response.status===403){
+        router.push("/ativar");
+        return;
+      }
       if(!response.ok){
         await signOut(firebaseAuth());
         setMessage(
