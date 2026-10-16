@@ -12,21 +12,19 @@ async function currentMember(req:NextRequest){
 const clean=(v:unknown,max:number)=>typeof v==="string"?v.trim().slice(0,max):"";
 export async function PATCH(req:NextRequest){
   const origin=req.headers.get("origin");
-  if(!origin||origin!==new URL(req.url).origin)return NextResponse.json({error:"Origem não autorizada."},{status:403});
+  if(!origin||!new Set([new URL(req.url).origin,...[req.headers.get("x-forwarded-host"),req.headers.get("host")].filter(Boolean).map(h=>`https://${h!.split(",")[0].trim()}`)]).has(origin))return NextResponse.json({error:"Origem não autorizada."},{status:403});
   try{
     const member=await currentMember(req);
     if(!member)return NextResponse.json({error:"Acesso restrito."},{status:403});
     const body=await req.json();
     if(!body||typeof body!=="object"||Array.isArray(body))return NextResponse.json({error:"Dados inválidos."},{status:400});
-    const fields=["profession","bio","companies","education","languages","interests","city","photoUrl","whatsapp"];
+    const fields=["profession","bio","companies","education","languages","interests","city","whatsapp"];
     for(const key of fields)if(body[key]!==undefined&&typeof body[key]!=="string")return NextResponse.json({error:"Dados inválidos."},{status:400});
-    const photoUrl=clean(body.photoUrl,500);
-    if(photoUrl&&(!/^https:\/\//i.test(photoUrl)||photoUrl.includes("@")))return NextResponse.json({error:"Use um endereço HTTPS válido para a foto."},{status:400});
     const updates={
       profession:clean(body.profession,120),bio:clean(body.bio,1200),
       companies:clean(body.companies,400),education:clean(body.education,400),
       languages:clean(body.languages,180),interests:clean(body.interests,400),
-      city:clean(body.city,120),photoUrl,whatsapp:clean(body.whatsapp,40),
+      city:clean(body.city,120),whatsapp:clean(body.whatsapp,40),
       updatedAt:new Date().toISOString()
     };
     await member.ref.update(updates);
