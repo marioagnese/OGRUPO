@@ -234,3 +234,49 @@
 .statute-bottom p{font:italic 26px Georgia,serif;margin-bottom:25px}
 @media(max-width:900px){.story-body,.story-band-grid{grid-template-columns:1fr;gap:25px}.statute-shell{grid-template-columns:1fr;gap:30px}.statute-sidebar{position:static}.statute-sidebar nav{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.site-header .brand{font-size:36px}.site-header .brand .enso{width:33px;height:33px;border-width:6px}.story-hero-inner,.statute-hero>.wrap{padding-top:90px;padding-bottom:95px}.story-body{padding-top:70px;padding-bottom:70px}.story-band{padding:70px 0}.statute-sidebar nav{grid-template-columns:1fr}.statute-shell{padding-top:45px}.statute-meta{gap:12px}.statute-meta span+span{padding-left:12px}}
+
+
+/* Approved oGrupo open-Enso brand logo */
+.site-header .brand {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.site-header .brand-logo {
+  display: block;
+  width: clamp(190px, 16vw, 260px);
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 800px) {
+  .site-header .brand-logo {
+    width: 155px;
+  }
+}
+
+/* oGrupo final principle icon refinement */
+.og-principle-icon {
+  width: 82px;
+  height: 82px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(58, 188, 199, .45);
+  border-radius: 22px;
+  background: rgba(35, 162, 177, .07);
+  color: #34c0cc;
+  margin-bottom: 20px;
+}
+
+.og-principle-icon svg {
+  width: 42px;
+  height: 42px;
+}
+
+.og-principle-number {
+  display: none;
+}
