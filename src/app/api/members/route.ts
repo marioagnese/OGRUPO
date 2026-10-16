@@ -1,5 +1,6 @@
 import {NextRequest,NextResponse} from "next/server";
 import {adminAuth,db} from "@/lib/firebase-admin";
+import {getStorage} from "firebase-admin/storage";
 
 
 
@@ -30,9 +31,17 @@ export async function GET(req:NextRequest){
     const all=await db().collection("members")
       .where("status","==","active").limit(200).get();
 
-    const directory=all.docs
+    const bucket=getStorage().bucket("ogrupo-a29d4.firebasestorage.app");
+    async function photo(m:Record<string,unknown>){
+      const path=typeof m.photoPath==="string"?m.photoPath:"";
+      if(path.startsWith("member-photos/")){
+        try{const [url]=await bucket.file(path).getSignedUrl({action:"read",expires:Date.now()+60*60*1000});return url;}catch{return "";}
+      }
+      return typeof m.photoUrl==="string"&&/^https:\/\//.test(m.photoUrl)?m.photoUrl:"";
+    }
+    const directory=await Promise.all(all.docs
       .filter(d=>d.data().directoryConsent===true)
-      .map(doc=>{
+      .map(async doc=>{
         const m=doc.data();
         return {
           id:doc.id,
@@ -41,8 +50,7 @@ export async function GET(req:NextRequest){
           bio:String(m.bio||""),
           email:String(m.email||""),
           whatsapp:String(m.whatsapp||""),
-          photoUrl:typeof m.photoUrl==="string"&&
-            /^https:\/\//.test(m.photoUrl)?m.photoUrl:"",
+          photoUrl:await photo(m),
           foundingMember:Boolean(m.foundingMember),
           companies:String(m.companies||""),
           education:String(m.education||""),
@@ -51,8 +59,8 @@ export async function GET(req:NextRequest){
           city:String(m.city||""),
           circleId:String(m.circleId||"")
         };
-      })
-      .sort((a,b)=>a.name.localeCompare(b.name,"pt-BR"));
+      }));
+    directory.sort((a,b)=>a.name.localeCompare(b.name,"pt-BR"));
 
     const own=member.data();
     const meetingsSnap=await db().collection("meetings").orderBy("startsAt","asc").limit(100).get();
@@ -67,7 +75,7 @@ export async function GET(req:NextRequest){
         profession:String(own.profession||""),bio:String(own.bio||""),
         companies:String(own.companies||""),education:String(own.education||""),
         languages:String(own.languages||""),interests:String(own.interests||""),
-        city:String(own.city||""),photoUrl:String(own.photoUrl||""),
+        city:String(own.city||""),photoUrl:await photo(own),
         whatsapp:String(own.whatsapp||""),circleId:String(own.circleId||"")},
       meetings,
       directory
