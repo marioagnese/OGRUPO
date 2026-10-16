@@ -182,3 +182,11 @@
 .music-mini-player iframe{display:block;width:100%;aspect-ratio:16/9;border:0;border-radius:5px}
 .music-mini-close{position:absolute;right:0;top:-28px;width:25px;height:25px;border:1px solid #44767b;border-radius:50%;background:#0b2027;color:#fff;cursor:pointer}
 @media(max-width:600px){.music-mini-player{width:160px;right:8px;bottom:8px}}
+
+/* Codespaces preview: user-selected Gemini firepit photograph */
+.og-hero-photo{background-image:url("/Gemini_Generated_Image_h72q1mh72q1mh72q.jpg");background-size:cover;background-position:65% center;filter:grayscale(1) contrast(1.08) brightness(.82)}
+.og-experience-image{background-image:url("/Gemini_Generated_Image_h72q1mh72q1mh72q.jpg");background-size:cover;background-position:center;filter:grayscale(1) contrast(1.08) brightness(.83)}
+.og-hero-shade{background:linear-gradient(90deg,rgba(4,8,10,.99) 0%,rgba(4,8,10,.96) 20%,rgba(4,8,10,.76) 44%,rgba(4,8,10,.08) 85%),linear-gradient(0deg,rgba(4,8,10,.45),transparent 40%)}
+.og-hero h1{font-size:clamp(43px,4.3vw,65px);max-width:690px}
+.og-hero-description{max-width:640px}
+@media(max-width:800px){.og-hero-photo{background-position:62% center}.og-hero-shade{background:linear-gradient(90deg,rgba(4,8,10,.94),rgba(4,8,10,.45))}}
