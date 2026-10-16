@@ -885,3 +885,24 @@
     grid-template-columns:1fr;
   }
 }
+
+/* Responsive site navigation: desktop links and accessible mobile menu */
+.nav-mobile-actions,.nav-mobile-menu{display:none}
+@media(max-width:950px){
+  .site-header .nav{min-height:76px;position:relative;gap:12px}
+  .site-header .brand-logo{height:clamp(39px,7vw,52px);width:auto;max-width:min(42vw,190px)}
+  .site-header .nav-desktop{display:none}
+  .site-header .nav-mobile-actions{display:flex;align-items:center;gap:9px;margin-left:auto;flex-shrink:0}
+  .site-header .nav-mobile-login,.site-header .nav-menu-button{display:inline-flex;align-items:center;justify-content:center;border:1px solid #4e7980;border-radius:999px;color:#fff;background:#0c1e23;font:700 13px Arial,Helvetica,sans-serif;min-height:40px;padding:0 14px;white-space:nowrap}
+  .site-header .nav-mobile-login{background:#0da8b7;border-color:#0da8b7}
+  .site-header .nav-menu-button{gap:7px;cursor:pointer}
+  .site-header .nav-mobile-menu{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:#091317;color:#fff;border:1px solid #29454a;border-top:0;border-radius:0 0 14px 14px;box-shadow:0 18px 32px #0007;padding:12px 20px 18px;z-index:50}
+  .site-header .nav-mobile-menu>a{display:block;padding:13px 5px;border-bottom:1px solid #24383d;font-size:15px;font-weight:600}
+  .site-header .nav-mobile-music{padding-top:15px}
+}
+@media(max-width:370px){
+  .site-header .nav{gap:7px}
+  .site-header .nav-mobile-actions{gap:6px}
+  .site-header .nav-mobile-login,.site-header .nav-menu-button{padding:0 10px;font-size:12px}
+  .site-header .nav-menu-button{gap:5px}
+}
