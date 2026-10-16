@@ -913,3 +913,18 @@
 @media(max-width:900px){.hub-feature-grid,.hub-people{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:620px){.hub-hero-inner{padding:45px 0 50px}.hub-tabs{gap:5px}.hub-tabs button{font-size:12px;padding:10px 12px}.hub-tabs .hub-signout{margin-left:0}.hub-section{padding-top:40px}.hub-feature-grid,.hub-people,.hub-form-grid{grid-template-columns:1fr}.hub-form-grid label.hub-wide{grid-column:auto}.hub-feature{min-height:235px}.hub-event{flex-direction:column;gap:10px}.hub-detail{padding:25px}.hub-profile-heading{align-items:flex-start}}
 
 .hub-photo-upload{display:block;margin-bottom:26px;color:#203743;font-size:13px;font-weight:700}.hub-photo-controls{display:flex;align-items:center;flex-wrap:wrap;gap:14px;margin-top:12px}.hub-photo-controls input{max-width:270px;font-size:13px}.hub-photo-controls small{color:#647785;font-weight:400}
+
+/* Compact login landing: keep the email/password form visible on arrival. */
+.member-hero-login{padding:28px 0 30px}
+.member-hero-login h1{font-size:clamp(32px,4vw,52px);line-height:1.07;margin:10px 0}
+.member-hero-login p{font-size:15px;line-height:1.45;margin:8px 0 0}
+.member-login-layout{padding-top:30px}
+@media(max-width:900px){
+  .member-hero-login{padding:20px 0 22px}
+  .member-hero-login h1{font-size:clamp(30px,7vw,43px)}
+  .member-login-layout{padding-top:22px;gap:18px}
+  .member-login-intro{display:none}
+  .member-login-card{padding:22px}
+  .member-login-card h2{font-size:28px;margin:10px 0}
+  .member-login-form{margin-top:18px;gap:14px}
+}
