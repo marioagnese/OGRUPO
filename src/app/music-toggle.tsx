@@ -1,13 +1,19 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 export default function MusicToggle(){
- const [open,setOpen]=useState(false);
+ const video=useRef<HTMLVideoElement>(null);
+ const [playing,setPlaying]=useState(false);
+ const [error,setError]=useState(false);
+ useEffect(()=>{return ()=>{video.current?.pause()}},[]);
+ async function toggle(){
+   if(!video.current)return;
+   if(playing){video.current.pause();setPlaying(false);return}
+   try{setError(false);video.current.volume=.65;await video.current.play();setPlaying(true)}
+   catch{setPlaying(false);setError(true)}
+ }
  return <>
- <button className={"music-toggle"+(open?" is-playing":"")} type="button" onClick={()=>setOpen(v=>!v)} aria-label={open?"Fechar player musical":"Abrir player musical"} aria-expanded={open}>
- <span className="music-bars" aria-hidden="true"><i/><i/><i/></span><span className="music-label">Música <strong>{open?"ON":"OFF"}</strong></span></button>
- {open&&<aside className="music-mini-player" aria-label="Reprodução musical">
- <button className="music-mini-close" type="button" onClick={()=>setOpen(false)} aria-label="Fechar música">×</button>
- <iframe title="Survivor — Burning Heart" src="https://www.youtube-nocookie.com/embed/7WhjoreV3hw?autoplay=1&playsinline=1" allow="autoplay; encrypted-media; picture-in-picture" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen/>
- </aside>}
- </>;
+ <button className={"music-toggle"+(playing?" is-playing":"")} type="button" onClick={toggle} aria-label={playing?"Pausar música":"Tocar música"} aria-pressed={playing} title={error?"Coloque preview-music.mp4 em public/assets":"Música ambiente"}>
+ <span className="music-bars" aria-hidden="true"><i/><i/><i/></span><span className="music-label">Música <strong>{playing?"ON":"OFF"}</strong></span></button>
+ <video ref={video} src="/assets/preview-music.mp4" loop playsInline preload="none" aria-hidden="true" style={{display:"none"}} onEnded={()=>setPlaying(false)} onError={()=>{setPlaying(false);setError(true)}}/>
+ </>
 }
