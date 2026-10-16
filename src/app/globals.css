@@ -138,3 +138,20 @@
 @media(max-width:1000px){.site-header .nav-links{gap:14px}.og-philosophy-intro{gap:40px}.og-principle{padding-left:25px;padding-right:25px}.og-experience-text{padding:55px 35px}}
 @media(max-width:800px){.site-header .nav{min-height:76px}.site-header .brand{font-size:30px}.site-header .enso{width:29px;height:29px;border-width:5px}.site-header .nav-links>a[href="/#filosofia"],.site-header .nav-links>a[href="/#encontros"]{display:none}.og-hero{min-height:760px}.og-hero-photo{background-position:65% center}.og-hero-shade{background:linear-gradient(90deg,rgba(6,12,16,.94),rgba(6,12,16,.58)),linear-gradient(0deg,rgba(6,12,16,.75),transparent 50%)}.og-hero-content{padding:100px 0 130px}.og-hero h1{font-size:clamp(44px,7vw,65px)}.og-hero-description{font-size:16px}.og-hero-facts{gap:10px}.og-hero-facts span{padding:0 12px}.og-philosophy-intro{grid-template-columns:1fr;gap:10px}.og-principles{grid-template-columns:1fr}.og-principle,.og-principle:first-child{padding:25px 0;border-right:0;border-bottom:1px solid #34434b}.og-experience{grid-template-columns:1fr}.og-experience-image{min-height:310px}.og-experience-text{padding:60px 24px}}
 @media(max-width:520px){.site-header .nav-links>a[href="/"],.site-header .nav-links>a[href="/estatuto"],.site-header .nav-links>a[href="/login"]{display:none}.site-header .nav-cta{padding:10px 12px;font-size:11px}.og-hero h1{font-size:clamp(39px,10vw,51px)}.og-hero-belief{font-size:14px}.og-button{padding:14px 18px}.og-hero-facts span{border:0}.og-explore{right:20px}.og-philosophy{padding:75px 0}}
+
+/* Final image and layout corrections: documentary black-and-white fire circle */
+.og-hero-photo{background-image:url("https://unsplash.com/photos/dQo2YeRyKMQ/download?force=true&w=2200");background-position:70% 52%;filter:grayscale(1) contrast(1.15) brightness(.76)}
+.og-hero-shade{background:linear-gradient(90deg,#070b0d 0%,rgba(7,11,13,.98) 22%,rgba(7,11,13,.86) 40%,rgba(7,11,13,.23) 79%,rgba(7,11,13,.17)),linear-gradient(0deg,rgba(4,8,10,.68),transparent 30%)}
+.og-hero h1{font-size:clamp(46px,4.5vw,67px);max-width:710px;line-height:1.08}
+.og-hero-content{padding-top:78px;padding-bottom:100px}
+.og-hero-description{max-width:495px}
+.og-hero-facts{margin-top:38px}
+.og-experience-image{background-image:url("https://unsplash.com/photos/dQo2YeRyKMQ/download?force=true&w=1400");filter:grayscale(1) contrast(1.08) brightness(.76);background-position:center 52%}
+.og-experience{min-height:410px}
+.og-experience-image{min-height:410px}
+.og-experience-text{padding-top:65px;padding-bottom:60px}
+.site-header .nav-links>a[href="/login"]{border:1px solid #b5c6ca;border-radius:40px;padding:12px 19px;color:#fff}
+.site-header .nav-links>a[href="/login"]:hover{background:#172d33;color:#fff}
+.og-principle-icon{font-family:Georgia,serif;font-size:34px}
+@media(max-width:800px){.og-hero-photo{background-position:65% center}.og-hero-shade{background:linear-gradient(90deg,rgba(6,11,14,.95),rgba(6,11,14,.65))}.og-hero h1{font-size:clamp(42px,7vw,62px)}}
+@media(max-width:520px){.og-hero h1{font-size:clamp(39px,10vw,50px)}}
