@@ -43,13 +43,33 @@ export async function GET(req:NextRequest){
           whatsapp:String(m.whatsapp||""),
           photoUrl:typeof m.photoUrl==="string"&&
             /^https:\/\//.test(m.photoUrl)?m.photoUrl:"",
-          foundingMember:Boolean(m.foundingMember)
+          foundingMember:Boolean(m.foundingMember),
+          companies:String(m.companies||""),
+          education:String(m.education||""),
+          languages:String(m.languages||""),
+          interests:String(m.interests||""),
+          city:String(m.city||""),
+          circleId:String(m.circleId||"")
         };
       })
       .sort((a,b)=>a.name.localeCompare(b.name,"pt-BR"));
 
+    const own=member.data();
+    const meetingsSnap=await db().collection("meetings").orderBy("startsAt","asc").limit(100).get();
+    const meetings=meetingsSnap.docs.map(d=>{
+      const m=d.data();
+      return {id:d.id,title:String(m.title||""),startsAt:String(m.startsAt||""),
+        location:String(m.location||""),description:String(m.description||""),
+        circleId:String(m.circleId||"")};
+    }).filter(m=>m.title&&m.startsAt&&(!m.circleId||m.circleId===String(own.circleId||"")));
     return NextResponse.json({
-      member:{name:String(member.data().name||""),email},
+      member:{id:member.id,name:String(own.name||""),email,
+        profession:String(own.profession||""),bio:String(own.bio||""),
+        companies:String(own.companies||""),education:String(own.education||""),
+        languages:String(own.languages||""),interests:String(own.interests||""),
+        city:String(own.city||""),photoUrl:String(own.photoUrl||""),
+        whatsapp:String(own.whatsapp||""),circleId:String(own.circleId||"")},
+      meetings,
       directory
     },{headers:{"Cache-Control":"private, no-store"}});
   }catch{
