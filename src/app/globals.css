@@ -73,3 +73,68 @@
 @media(max-width:800px){.hero-refined{min-height:720px;background-image:linear-gradient(90deg,rgba(9,19,28,.94),rgba(9,19,28,.66)),url("https://unsplash.com/photos/YbloE5Lvkic/download?force=true&w=1200");background-position:center}.hero-refined .hero-inner{padding-top:115px}.hero-refined h1{font-size:clamp(43px,8.5vw,62px)}.feature-grid{display:block}.feature{border-right:0;border-bottom:1px solid #dce4e3;padding:24px 0;min-height:0}.nav-links{gap:9px}.music-toggle{padding:8px}.music-label{display:none}}
 @media(max-width:560px){.nav-links>a:nth-child(2){display:none}.nav-cta{font-size:11px}.hero-refined .hero-inner{padding-top:100px}}
 @media(prefers-reduced-motion:reduce){.is-playing .music-bars i{animation:none}}
+
+/* oGrupo premium dark homepage — 2026-10-16 */
+.site-header{background:#070b0d;border-bottom:1px solid #1e292c;color:#fff}
+.site-header .nav{min-height:94px}
+.site-header .brand{font-size:clamp(34px,3vw,43px);letter-spacing:-2.8px;color:#fff}
+.site-header .enso{width:41px;height:41px;border-width:7px}
+.site-header .enso:after{background:#070b0d}
+.site-header .nav-links{gap:25px}
+.site-header .nav-links a:hover{color:#44c9d2}
+.site-header .nav-cta{background:#0da8b7;color:#fff;border-color:#0da8b7;padding:14px 20px}
+.site-header .nav-cta:hover{background:#25c2cd;color:#051a21!important}
+.site-header .music-toggle{color:#62d8dd;border-color:#1a909d;background:#0b1e24}
+.site-header .music-toggle:hover,.site-header .music-toggle.is-playing{background:#103a43}
+.site-header .music-label strong{color:#8be9eb}
+.og-hero{position:relative;isolation:isolate;min-height:min(860px,calc(100svh - 94px));background:#0a0d10;color:#fff;display:flex;align-items:center;overflow:hidden}
+.og-hero-photo{position:absolute;inset:0;z-index:-2;background-image:url("https://unsplash.com/photos/gXNpIugknlA/download?force=true&w=2200");background-position:60% center;background-size:cover;transform:scale(1.015)}
+.og-hero-shade{position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#070c10 0%,rgba(7,12,16,.97) 25%,rgba(7,12,16,.79) 46%,rgba(7,12,16,.22) 85%),linear-gradient(0deg,rgba(4,8,10,.83),transparent 26%)}
+.og-hero-content{padding:88px 0 100px;position:relative}
+.og-kicker{display:block;color:#e0b780;font-size:11px;letter-spacing:4px;font-weight:800}
+.og-hero h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(47px,5.1vw,76px);line-height:1.06;letter-spacing:-2px;font-weight:400;margin:24px 0 24px;max-width:790px}
+.og-hero h1 em{font-weight:400;font-style:italic;color:#24b7c5}
+.og-hero-description{font-size:18px;line-height:1.65;max-width:535px;color:#f2efea;margin:0}
+.og-hero-belief{color:#d9d7d0;font-size:16px;line-height:1.6;margin:12px 0 0;max-width:560px}
+.og-hero-actions{display:flex;flex-wrap:wrap;gap:15px;margin-top:30px}
+.og-button{display:inline-flex;align-items:center;justify-content:center;gap:16px;border-radius:100px;padding:17px 27px;font-size:14px;font-weight:700;transition:background .2s,transform .2s}
+.og-button:hover{transform:translateY(-2px)}
+.og-button-teal{background:#0eafbd;color:#fff}
+.og-button-teal:hover{background:#2bc9d4}
+.og-button-ghost{border:1px solid #d9dedc;background:rgba(5,10,12,.32);color:#fff}
+.og-button-ghost:hover{background:rgba(255,255,255,.15)}
+.og-hero-facts{display:flex;flex-wrap:wrap;gap:0;margin-top:53px;font-size:12px;color:#e6e9e8}
+.og-hero-facts span{padding:0 22px;border-right:1px solid #637175}
+.og-hero-facts span:first-child{padding-left:0}
+.og-hero-facts span:last-child{border-right:0}
+.og-explore{position:absolute;bottom:34px;right:6%;display:flex;flex-direction:column;align-items:center;gap:7px;color:#fff}
+.og-explore>span{display:grid;place-items:center;width:44px;height:44px;border:1px solid #e4e9e8;border-radius:50%;font-size:23px}
+.og-explore small{font-size:10px;letter-spacing:2px}
+.og-philosophy{background:radial-gradient(circle at 90% 2%,#153039 0%,#0c1b24 42%,#09141a 100%);color:#fff;padding:95px 0 105px}
+.og-philosophy-intro{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:90px}
+.og-philosophy h2,.og-experience h2{font-family:Georgia,"Times New Roman",serif;font-weight:400;letter-spacing:-1.6px;line-height:1.12;font-size:clamp(40px,4vw,59px);margin:24px 0 0}
+.og-philosophy h2 em,.og-experience h2 em{color:#28bfca;font-style:normal}
+.og-philosophy-copy p{font-size:17px;line-height:1.9;color:#d5e0e2;max-width:490px}
+.og-philosophy-copy a,.og-text-link{display:inline-block;color:#31d2dc;font-weight:700;margin-top:20px}
+.og-principles{display:grid;grid-template-columns:repeat(3,1fr);margin-top:65px;border-top:1px solid #34434b;padding-top:30px}
+.og-principle{position:relative;padding:12px 45px 10px;border-right:1px solid #34434b}
+.og-principle:first-child{padding-left:0}.og-principle:last-child{border-right:0}
+.og-principle-icon{display:grid;place-items:center;width:61px;height:61px;border:1px solid #62757d;border-radius:50%;font-size:31px;color:#f0f7f7;margin-bottom:22px}
+.og-principle-number{position:absolute;top:32px;right:30px;color:#78969d;font-size:12px}
+.og-principle h3{font-size:22px;letter-spacing:-.6px;margin:0 0 12px}
+.og-principle p{font-size:15px;line-height:1.75;color:#bfcdd0;margin:0}
+.og-experience{display:grid;grid-template-columns:1fr 1fr;min-height:470px;background:#07151d;color:#fff}
+.og-experience-image{background-image:linear-gradient(0deg,rgba(8,15,20,.12),rgba(8,15,20,.12)),url("https://unsplash.com/photos/YbloE5Lvkic/download?force=true&w=1400");background-position:center;background-size:cover;min-height:470px}
+.og-experience-text{padding:75px clamp(35px,6vw,110px)}
+.og-experience h2{margin:18px 0 20px}
+.og-experience-text>p{max-width:540px;color:#c8d4d8;line-height:1.8;font-size:16px}
+.og-meeting-stats{display:flex;gap:28px;margin-top:24px;padding-top:20px;border-top:1px solid #34444b;color:#b6c6c9;font-size:13px}
+.og-meeting-stats strong{color:#5bd1d4;font-size:20px;display:block;margin-bottom:5px}
+.og-closing{padding:115px 0 120px;background:linear-gradient(90deg,rgba(7,14,18,.92),rgba(7,14,18,.66)),url("https://unsplash.com/photos/gXNpIugknlA/download?force=true&w=1600") center/cover;color:#fff;text-align:center}
+.og-closing blockquote{font:italic clamp(28px,3.5vw,51px)/1.3 Georgia,"Times New Roman",serif;max-width:1000px;margin:32px auto}
+.og-closing p{font-size:20px;line-height:1.6;color:#e2e7e6}
+.og-closing p em{color:#39c9d0;font-style:normal}
+.og-signature{display:block;margin-top:30px;color:#c4d0d0}
+@media(max-width:1000px){.site-header .nav-links{gap:14px}.og-philosophy-intro{gap:40px}.og-principle{padding-left:25px;padding-right:25px}.og-experience-text{padding:55px 35px}}
+@media(max-width:800px){.site-header .nav{min-height:76px}.site-header .brand{font-size:30px}.site-header .enso{width:29px;height:29px;border-width:5px}.site-header .nav-links>a[href="/#filosofia"],.site-header .nav-links>a[href="/#encontros"]{display:none}.og-hero{min-height:760px}.og-hero-photo{background-position:65% center}.og-hero-shade{background:linear-gradient(90deg,rgba(6,12,16,.94),rgba(6,12,16,.58)),linear-gradient(0deg,rgba(6,12,16,.75),transparent 50%)}.og-hero-content{padding:100px 0 130px}.og-hero h1{font-size:clamp(44px,7vw,65px)}.og-hero-description{font-size:16px}.og-hero-facts{gap:10px}.og-hero-facts span{padding:0 12px}.og-philosophy-intro{grid-template-columns:1fr;gap:10px}.og-principles{grid-template-columns:1fr}.og-principle,.og-principle:first-child{padding:25px 0;border-right:0;border-bottom:1px solid #34434b}.og-experience{grid-template-columns:1fr}.og-experience-image{min-height:310px}.og-experience-text{padding:60px 24px}}
+@media(max-width:520px){.site-header .nav-links>a[href="/"],.site-header .nav-links>a[href="/estatuto"],.site-header .nav-links>a[href="/login"]{display:none}.site-header .nav-cta{padding:10px 12px;font-size:11px}.og-hero h1{font-size:clamp(39px,10vw,51px)}.og-hero-belief{font-size:14px}.og-button{padding:14px 18px}.og-hero-facts span{border:0}.og-explore{right:20px}.og-philosophy{padding:75px 0}}
