@@ -12,8 +12,8 @@ export default function MusicToggle(){
    catch{setPlaying(false);setError(true)}
  }
  return <>
- <button className={"music-toggle"+(playing?" is-playing":"")} type="button" onClick={toggle} aria-label={playing?"Pausar música":"Tocar música"} aria-pressed={playing} title={error?"Coloque preview-music.mp4 em public/assets":"Música ambiente"}>
+ <button className={"music-toggle"+(playing?" is-playing":"")} type="button" onClick={toggle} aria-label={playing?"Pausar música":"Tocar música"} aria-pressed={playing} title={error?"Verifique o arquivo MP4 na pasta public":"Música ambiente"}>
  <span className="music-bars" aria-hidden="true"><i/><i/><i/></span><span className="music-label">Música <strong>{playing?"ON":"OFF"}</strong></span></button>
- <video ref={video} src="/assets/preview-music.mp4" loop playsInline preload="none" aria-hidden="true" style={{display:"none"}} onEnded={()=>setPlaying(false)} onError={()=>{setPlaying(false);setError(true)}}/>
+ <video ref={video} src="/WhatsApp%20Video%202026-10-16%20at%208.20.01%20AM.mp4" loop playsInline preload="none" aria-hidden="true" style={{display:"none"}} onEnded={()=>setPlaying(false)} onError={()=>{setPlaying(false);setError(true)}}/>
  </>
 }
