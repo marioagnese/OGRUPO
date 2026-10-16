@@ -4,8 +4,16 @@ import {getStorage} from "firebase-admin/storage";
 
 export async function POST(req:NextRequest){
   const origin=req.headers.get("origin");
-  const allowed=new Set([new URL(req.url).origin,...[req.headers.get("x-forwarded-host"),req.headers.get("host")].filter(Boolean).map(h=>`https://${h!.split(",")[0].trim()}`)]);
-  if(!origin||!allowed.has(origin))return NextResponse.json({error:"Origem não autorizada."},{status:403});
+  const referer=req.headers.get("referer");
+  const fetchSite=req.headers.get("sec-fetch-site");
+  const browserSameOrigin=fetchSite==="same-origin"&&!!referer&&!!origin&&
+    (()=>{try{return new URL(referer).origin===origin;}catch{return false;}})();
+  const serverOrigin=new URL(req.url).origin;
+  const proxyHost=req.headers.get("x-forwarded-host")?.split(",")[0]?.trim();
+  const host=req.headers.get("host")?.split(",")[0]?.trim();
+  const hostOrigins=[proxyHost,host].filter((h):h is string=>Boolean(h)).flatMap(h=>[`https://${h}`,`http://${h}`]);
+  if(!origin||!(browserSameOrigin||[serverOrigin,...hostOrigins].includes(origin)))
+    return NextResponse.json({error:"Origem não autorizada."},{status:403});
   try{
     const token=req.headers.get("authorization")?.replace(/^Bearer /,"");
     if(!token)return NextResponse.json({error:"Autenticação necessária."},{status:401});
