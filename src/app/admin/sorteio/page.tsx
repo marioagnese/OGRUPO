@@ -1,0 +1,1 @@
+export default function Sorteio(){return <section className="wrap page-hero"><span className="eyebrow">ADMINISTRAÇÃO</span><h1>Sorteio inaugural</h1><p>O sorteio auditável das primeiras opções dos fundadores será habilitado após a autenticação administrativa e a confirmação da lista de participantes. Não há sorteio público nem gravação de debates.</p></section>}
