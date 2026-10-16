@@ -12,7 +12,16 @@ async function currentMember(req:NextRequest){
 const clean=(v:unknown,max:number)=>typeof v==="string"?v.trim().slice(0,max):"";
 export async function PATCH(req:NextRequest){
   const origin=req.headers.get("origin");
-  if(!origin||!new Set([new URL(req.url).origin,...[req.headers.get("x-forwarded-host"),req.headers.get("host")].filter(Boolean).map(h=>`https://${h!.split(",")[0].trim()}`)]).has(origin))return NextResponse.json({error:"Origem não autorizada."},{status:403});
+  const referer=req.headers.get("referer");
+  const fetchSite=req.headers.get("sec-fetch-site");
+  const browserSameOrigin=fetchSite==="same-origin"&&!!referer&&!!origin&&
+    (()=>{try{return new URL(referer).origin===origin;}catch{return false;}})();
+  const serverOrigin=new URL(req.url).origin;
+  const proxyHost=req.headers.get("x-forwarded-host")?.split(",")[0]?.trim();
+  const host=req.headers.get("host")?.split(",")[0]?.trim();
+  const hostOrigins=[proxyHost,host].filter((h):h is string=>Boolean(h)).flatMap(h=>[`https://${h}`,`http://${h}`]);
+  if(!origin||!(browserSameOrigin||[serverOrigin,...hostOrigins].includes(origin)))
+    return NextResponse.json({error:"Origem não autorizada."},{status:403});
   try{
     const member=await currentMember(req);
     if(!member)return NextResponse.json({error:"Acesso restrito."},{status:403});
