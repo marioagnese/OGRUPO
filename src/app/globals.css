@@ -176,3 +176,9 @@
 @media(min-width:1200px){.og-hero h1{max-width:700px}.og-hero-description{max-width:690px}}
 @media(max-width:800px){.og-hero{min-height:780px}.og-hero h1{font-size:clamp(42px,7vw,59px)}.og-hero-description{font-size:18px;max-width:550px}}
 @media(max-width:520px){.og-hero h1{font-size:clamp(39px,10vw,50px)}.og-hero-content{padding-top:92px}.og-hero-facts{margin-top:30px}}
+
+/* Compact compliant music dock, not an intrusive hero overlay */
+.music-mini-player{position:fixed;right:12px;bottom:12px;top:auto;z-index:500;width:210px;background:#081318;padding:7px;border:1px solid #20535b;border-radius:10px;box-shadow:0 10px 35px #0008}
+.music-mini-player iframe{display:block;width:100%;aspect-ratio:16/9;border:0;border-radius:5px}
+.music-mini-close{position:absolute;right:0;top:-28px;width:25px;height:25px;border:1px solid #44767b;border-radius:50%;background:#0b2027;color:#fff;cursor:pointer}
+@media(max-width:600px){.music-mini-player{width:160px;right:8px;bottom:8px}}
