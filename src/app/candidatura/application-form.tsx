@@ -9,7 +9,7 @@ const personalFields = [
   ["email","E-mail",true],
   ["whatsapp","WhatsApp",true],
   ["profession","Profissão ou área de atuação",false],
-  ["referral","Quem indicou você?",false],
+  ["referral","Quem indicou você?",true],
 ] as const;
 
 const commitments = [
@@ -199,7 +199,7 @@ export default function ApplicationForm(){
         <p>
           <strong>
             Você pode participar dos encontros quinzenais às
-            quintas-feiras, das 19h às 21h?
+            quintas-feiras, das 19h30 às 21h?
           </strong>
         </p>
         <div className="apply-radio-options">

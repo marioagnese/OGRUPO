@@ -47,7 +47,7 @@ export async function POST(req:NextRequest){
     if(
       !firstName||!lastName||
       !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)||
-      !whatsapp||
+      !whatsapp||!referral||
       countWords(bio)<50||
       !["yes","no"].includes(availability)||
       !topics[0]||
@@ -74,7 +74,7 @@ export async function POST(req:NextRequest){
         name,firstName,lastName,email,whatsapp,bio,
         availability,profession,referral,topics,
         status:"pending",
-        statuteVersion:"3.0-reconstructed-review",
+        statuteVersion:"3.0",
         acceptedAt:now,createdAt:now
       });
       return true;
