@@ -120,9 +120,15 @@ export default function ApplicationForm(){
     <span className="og-kicker">CANDIDATURA RECEBIDA</span>
     <h2>Obrigado por dar<br/><em>o primeiro passo.</em></h2>
     <p>
-      Sua candidatura foi enviada com sucesso e será
-      analisada individualmente pela administração.
-      Entraremos em contato pelo e-mail informado.
+      Sua candidatura foi enviada com sucesso!
+      Nossa equipe analisará suas informações e, em até 24 a 48 horas,
+      você deverá receber um e-mail com a confirmação e, caso sua
+      candidatura seja aprovada, as próximas instruções.
+    </p>
+    <p>
+      <strong>Importante:</strong> Fique atento à sua caixa de entrada
+      e verifique também as pastas de Spam ou Lixo Eletrônico,
+      pois nossa mensagem poderá ser direcionada para lá.
     </p>
     <Link className="og-button og-button-teal" href="/">
       Voltar ao início ↗
